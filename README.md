@@ -1,6 +1,6 @@
 # Coding Agent
 
-This repository contains a prototype coding agent for generating neural network code from architecture descriptions. The agent uses **LangChain**, **OpenAI** and **Pydantic** to parse architecture files and produce boilerplate code for data pipelines, model definitions and training scripts.
+This repository contains a prototype coding agent for generating neural network code from architecture descriptions. The agent uses **LangChain**, **langchain-openai**, **OpenAI** and **Pydantic** to parse architecture files and produce boilerplate code for data pipelines, model definitions and training scripts. Retry logic is included via **tenacity** to help avoid transient rate limit issues.
 
 ## Usage
 
