@@ -1,0 +1,94 @@
+Neural Network Architecture Description
+=====================================
+
+Total layers: 17
+
+Layer 1: Input (InputLayer)
+  - Input shape: (28, 28, 1)
+
+Layer 2: Dense (Dense)
+  - Units: 128
+  - Activation: relu
+  - Use bias: Yes
+  - Kernel initializer: glorot_uniform
+
+Layer 3: Dense (Dense)
+  - Units: 128
+  - Activation: relu
+  - Use bias: Yes
+  - Kernel initializer: glorot_uniform
+
+Layer 4: Dense (Dense)
+  - Units: 128
+  - Activation: relu
+  - Use bias: Yes
+  - Kernel initializer: glorot_uniform
+
+Layer 5: Dense (Dense)
+  - Units: 128
+  - Activation: relu
+  - Use bias: Yes
+  - Kernel initializer: glorot_uniform
+
+Layer 6: Dense (Dense)
+  - Units: 128
+  - Activation: relu
+  - Use bias: Yes
+  - Kernel initializer: glorot_uniform
+
+Layer 7: Conv2D (Conv2D)
+  - Filters: 32
+  - Kernel size: (3, 3)
+  - Strides: (1, 1)
+  - Padding: valid
+  - Activation: relu
+
+Layer 8: Conv1D (Conv1D)
+
+Layer 9: ReLU (ReLU)
+  - No configurable parameters
+
+Layer 10: Conv2D (Conv2D)
+  - Filters: 32
+  - Kernel size: (3, 3)
+  - Strides: (1, 1)
+  - Padding: valid
+  - Activation: relu
+
+Layer 11: Conv1D (Conv1D)
+
+Layer 12: LeakyReLU (LeakyReLU)
+
+Layer 13: Attention (Attention)
+
+Layer 14: Attention (Attention)
+
+Layer 15: MultiHeadAttention (MultiHeadAttention)
+
+Layer 16: DenseBlock (DenseBlock)
+
+Layer 17: Output (Output)
+  - Units: 10
+  - Activation: softmax
+
+Layer Connections
+-----------------
+* InputLayer → Dense
+* InputLayer → Dense
+* InputLayer → Dense
+* Dense → Dense
+* Dense → Dense
+* Dense → Dense
+* Dense → Dense
+* Dense → Conv2D
+* Conv2D → Conv1D
+* Conv1D → ReLU
+* Dense → Conv2D
+* Conv2D → Conv1D
+* Conv1D → LeakyReLU
+* ReLU → Attention
+* LeakyReLU → Attention
+* Attention → MultiHeadAttention
+* Attention → MultiHeadAttention
+* MultiHeadAttention → DenseBlock
+* DenseBlock → Output
