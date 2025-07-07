@@ -3,8 +3,9 @@
 from pathlib import Path
 from typing import List
 
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
+from tenacity import retry, wait_exponential, stop_after_attempt
 
 from .architecture import Architecture
 
@@ -23,6 +24,7 @@ class CodeGenerator:
     def __init__(self, api_key: str, model: str = "gpt-3.5-turbo"):
         self.llm = ChatOpenAI(model_name=model, openai_api_key=api_key)
 
+    @retry(wait=wait_exponential(multiplier=1, min=1, max=60), stop=stop_after_attempt(6))
     def _generate(self, prompt: str) -> str:
         template = ChatPromptTemplate.from_template("{prompt}")
         chain = template | self.llm
